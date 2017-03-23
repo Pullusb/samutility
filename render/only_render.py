@@ -23,11 +23,11 @@ Alt+Shift+Z Only Render
 import bpy
 
 
-KEYMAPS = list()
+'''KEYMAPS = list()'''
 
 
 class SAMT_VIEW3D_OT_show_only_render(bpy.types.Operator):
-    bl_idname = "view3d.show_only_render"
+    bl_idname = "samutils.show_only_render"
     bl_label = "Show Only Render"
 
     def execute(self, context):
@@ -39,7 +39,7 @@ class SAMT_VIEW3D_OT_show_only_render(bpy.types.Operator):
             space.show_only_render = True
         return {"FINISHED"}
 
-
+'''
 def register():
     bpy.utils.register_class(SAMT_VIEW3D_OT_show_only_render)
     kc = bpy.context.window_manager.keyconfigs.addon
@@ -54,3 +54,4 @@ def unregister():
     for km, kmi in KEYMAPS:
         km.keymap_items.remove(kmi)
     KEYMAPS.clear()
+'''

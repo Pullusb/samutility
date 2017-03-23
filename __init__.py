@@ -1,6 +1,53 @@
-import sys
+'''
+Copyright (C) 2017 Samuel Bernou
 
-from samtools.render import only_render
+Created by YOUR NAME
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+
+# register the addon + modules found in globals() (taken from Amaranth addon)
+bl_info = {
+    "name": "samutility",
+    "author": "Samuel Bernou",
+    "version": (0, 0, 1),
+    "blender": (2, 78),
+    "location": "Anywhere!",
+    "description": "Complementary tools",
+    "warning": "",
+    "wiki_url": "",
+    "tracker_url": "",
+    "category": "Scene",
+}
+
+
+import bpy
+
+
+# load and reload submodules
+##################################
+
+import importlib
+from . import developer_utils
+from .render import only_render
+
+
+importlib.reload(developer_utils)
+modules = developer_utils.setup_addon_modules(__path__, __name__, "bpy" in locals())
+
+
 
 '''##exemple of multi import form a folder
 from samtools.render import (
@@ -9,39 +56,42 @@ from samtools.render import (
     )
 '''
 
-# register the addon + modules found in globals() (taken from Amaranth addon)
-bl_info = {
-    "name": "Samtools",
-    "author": "Samuel Bernou",
-    "version": (0, 0, 1),
-    "blender": (2, 78),
-    "location": "Anywhere!",
-    "description": "Complementary tools",
-    "warning": "",
-    "wiki_url": "",
+# register
+##################################
 
-    "tracker_url": "",
-    "category": "Scene",
-}
+addon_keymaps = []
+def register_keymaps():
+    addon = bpy.context.window_manager.keyconfigs.addon
+    km = addon.keymaps.new(name = "3D View", space_type = "VIEW_3D")
+
+    kmi = km.keymap_items.new("samutils.show_only_render", "Z", "PRESS",
+                              shift=True, alt=True)
+    addon_keymaps.append(km)
+
+def unregister_keymaps():
+    wm = bpy.context.window_manager
+    for km in addon_keymaps:
+        for kmi in km.keymap_items:
+            km.keymap_items.remove(kmi)
+        wm.keyconfigs.addon.keymaps.remove(km)
+    addon_keymaps.clear()
 
 
-def _call_globals(attr_name):
-    for m in globals().values():
-        if hasattr(m, attr_name):
-            getattr(m, attr_name)()
 
-
-def _flush_modules(pkg_name):
-    pkg_name = pkg_name.lower()
-    for k in tuple(sys.modules.keys()):
-        if k.lower().startswith(pkg_name):
-            del sys.modules[k]
-
+import traceback
 
 def register():
-    _call_globals("register")
+    try: bpy.utils.register_module(__name__)
+    except: traceback.print_exc()
+    if not bpy.app.background:
+        register_keymaps()
 
+    print("Registered {} with {} modules".format(bl_info["name"], len(modules)))
 
 def unregister():
-    _call_globals("unregister")
-    _flush_modules("samtools")  # reload samtools
+    if not bpy.app.background:
+        unregister_keymaps()
+    try: bpy.utils.unregister_module(__name__)
+    except: traceback.print_exc()
+
+    print("Unregistered {}".format(bl_info["name"]))
