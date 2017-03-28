@@ -41,7 +41,16 @@ import bpy
 
 import importlib
 from . import developer_utils
-from .render import only_render
+
+from .mods import subdiv_equalize
+from .code import mesh_dump
+from .render import view_tweak
+
+
+from .object import (
+    duplicate_mirror,
+    recalc_normals,
+    )
 
 
 importlib.reload(developer_utils)
@@ -63,9 +72,12 @@ addon_keymaps = []
 def register_keymaps():
     addon = bpy.context.window_manager.keyconfigs.addon
     km = addon.keymaps.new(name = "3D View", space_type = "VIEW_3D")
-
-    kmi = km.keymap_items.new("samutils.show_only_render", "Z", "PRESS",
-                              shift=True, alt=True)
+    #only_render
+    kmi = km.keymap_items.new("samutils.show_only_render", "Z", "PRESS", shift=True, alt=True)
+    
+    #lock_cam_to_view
+    kmi = km.keymap_items.new("samutils.lock_cam_to_view", "C", "PRESS", shift=True, alt=True)
+    
     addon_keymaps.append(km)
 
 def unregister_keymaps():
