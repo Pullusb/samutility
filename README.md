@@ -15,6 +15,6 @@ search : *Duplicate object mirror*
 **recalculate normals outside for all selected objects**  
 search : *Recalculate Normals Outside*
 
-**View tweaks**  
-Alt+Shift+Z : toggle Only Render
+**View tweaks**  
+Alt+Shift+Z : toggle Only Render  
 Alt+Shift+C : toggle Lock Cam to view
