@@ -5,7 +5,7 @@ C = bpy.context
 
 
 class Duplicate_mirrored(bpy.types.Operator):
-    bl_idname = "samops.duplicate_mirrored"
+    bl_idname = "samutils.duplicate_mirrored"
     bl_label = "Duplicate object mirror"
     bl_description = "duplicate mesh (copy data) with rotation mirrored"
     bl_options = {"REGISTER"}
@@ -23,7 +23,7 @@ class Duplicate_mirrored(bpy.types.Operator):
                 mirrorObName = ob.name.replace(".R",".L")
             elif ob.name.find(".L")!=-1:
                 mirrorObName = ob.name.replace(".L",".R")
-            else : 
+            else :
                 mirrorObName = ob.name+"_mirror"
 
             mirrorOb = ob.copy()
