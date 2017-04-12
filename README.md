@@ -15,6 +15,10 @@ search : *Duplicate object mirror*
 **recalculate normals outside for all selected objects**  
 search : *Recalculate Normals Outside*
 
+**generate bounding box object for all selected objects**  
+search : *Bbox from objects*
+
+
 **View tweaks**  
 Alt+Shift+Z : toggle Only Render  
 Alt+Shift+C : toggle Lock Cam to view
