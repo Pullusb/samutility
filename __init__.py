@@ -50,6 +50,7 @@ from .render import view_tweak
 from .object import (
     duplicate_mirror,
     recalc_normals,
+    Bbox_object,
     )
 
 
@@ -74,10 +75,10 @@ def register_keymaps():
     km = addon.keymaps.new(name = "3D View", space_type = "VIEW_3D")
     #only_render
     kmi = km.keymap_items.new("samutils.show_only_render", "Z", "PRESS", shift=True, alt=True)
-    
+
     #lock_cam_to_view
     kmi = km.keymap_items.new("samutils.lock_cam_to_view", "C", "PRESS", shift=True, alt=True)
-    
+
     addon_keymaps.append(km)
 
 def unregister_keymaps():
