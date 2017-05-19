@@ -3,11 +3,11 @@ from mathutils import Vector
 
 
 def BBox_object_materialise(obj):
-    '''create a cube object to match bounding box of passing object'''
+    '''Create a cube object to match bounding box of passing object'''
 
     name = 'BB_' + obj.name
 
-    verts = [obj.matrix_world * Vector(corner) for corner in obj.bound_box]
+    verts = [Vector(corner) for corner in obj.bound_box]
     print(verts)
     edges = [(4, 7), (5, 6), (4, 5), (6, 7), (0, 4), (0, 1), (1, 5), (1, 2), (2, 6), (2, 3), (3, 7), (0, 3)]
     faces = [[5, 1, 0, 4], [6, 5, 4, 7], [1, 5, 6, 2], [2, 6, 7, 3], [1, 2, 3, 0], [7, 4, 0, 3]]
@@ -17,6 +17,7 @@ def BBox_object_materialise(obj):
     # me.validate(verbose=True)
 
     ob = bpy.data.objects.new(name, me)
+    ob.parent = obj
     #ob.location = obj.location
     #ob.rotation_quaternion = obj.rotation_quaternion
     #ob.scale = obj.scale
@@ -28,7 +29,7 @@ def BBox_object_materialise(obj):
     scn.objects.active = ob
     ob.select = True
 
-    # create mesh from given verts, faces.
+    # Create mesh from given verts, faces.
     me.from_pydata(verts, edges, faces)
     # Update mesh with new data
     me.update()
@@ -43,13 +44,21 @@ class BBox_from_obj(bpy.types.Operator):
 
     @classmethod
     def poll(cls, context):
-        return context.selected_objects != []
+        return len(context.selected_objects)
 
     def execute(self, context):
         for ob in bpy.context.selected_objects:
             BBox_object_materialise(ob)
         return {"FINISHED"}
 
+def register():
+    bpy.utils.register_module(__name__)
+
+def unregister():
+    bpy.utils.unregister_module(__name__)
+
+if __name__ == "__main__":
+    register()
 
 
 #BBox_operator(C.object)
