@@ -51,14 +51,4 @@ class BBox_from_obj(bpy.types.Operator):
             BBox_object_materialise(ob)
         return {"FINISHED"}
 
-def register():
-    bpy.utils.register_module(__name__)
-
-def unregister():
-    bpy.utils.unregister_module(__name__)
-
-if __name__ == "__main__":
-    register()
-
-
 #BBox_operator(C.object)
