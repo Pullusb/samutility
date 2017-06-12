@@ -15,7 +15,7 @@ def decrement_name(ob, rx):
             new = ob.name[:-3] + str(i).zfill(3)
             if not bpy.data.objects.get(new):
                 ob.name = new
-                print(old, '>>', new, ' - from num', num, 'to', i)
+                print(old, '>>', new)#, ' - from num', num, 'to', i)
                 return(ob.name)
     print(ob.name, 'impossible to decrement')
     return
