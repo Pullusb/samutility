@@ -51,6 +51,7 @@ from .object import (
     duplicate_mirror,
     recalc_normals,
     Bbox_object,
+    decrement_name,
     )
 
 
@@ -59,7 +60,7 @@ modules = developer_utils.setup_addon_modules(__path__, __name__, "bpy" in local
 
 
 
-'''##exemple of multi import form a folder
+'''# exemple of multi import from a folder
 from samtools.render import (
     only_render,
     sauce,
