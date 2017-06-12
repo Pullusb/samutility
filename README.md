@@ -3,7 +3,7 @@ Blender addon - Complementary utils, tools and operators
 
 ---
 
-**Mesh to python** - create a text block with script to generate and link geometry
+**Mesh to python** - create a text block with script to generate and link geometry  
 search : *Dump active mesh to python*
 
 **equalize levels of subdivision modifier**  
@@ -17,6 +17,9 @@ search : *Recalculate Normals Outside*
 
 **generate bounding box object for all selected objects**  
 search : *Bbox from objects*
+
+**Decrement name of selected objects (not bones)**  
+search : *Decrement name*
 
 
 **View tweaks**  
