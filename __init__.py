@@ -22,7 +22,7 @@ Created by YOUR NAME
 bl_info = {
     "name": "samutility",
     "author": "Samuel Bernou",
-    "version": (0, 0, 1),
+    "version": (0, 0, 2),
     "blender": (2, 78),
     "location": "Anywhere!",
     "description": "Complementary tools",
@@ -79,6 +79,10 @@ def register_keymaps():
 
     #lock_cam_to_view
     kmi = km.keymap_items.new("samutils.lock_cam_to_view", "C", "PRESS", shift=True, alt=True)
+
+    #go material view
+    kmi = km.keymap_items.new("samutils.material_mode", "Z", "PRESS", shift=True, alt=True, ctrl=True)
+
 
     addon_keymaps.append(km)
 
