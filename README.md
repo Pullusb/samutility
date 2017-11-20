@@ -23,9 +23,9 @@ search : *Decrement name*
 
 
 **View tweaks**  
-Alt+Shift+Z : toggle Only Render
-Alt+Ctrl+Shift+Z : toggle Material/Solid
-Alt+Shift+C : toggle Lock Cam to view
+Alt+Shift+Z : toggle Only Render  
+Alt+Ctrl+Shift+Z : toggle Material/Solid  
+Alt+Shift+C : toggle Lock Cam to view  
 
 
 ## Update :
