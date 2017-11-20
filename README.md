@@ -31,5 +31,5 @@ Alt+Shift+C : toggle Lock Cam to view
 ## Update :
 
 version 0.0.2:
-  Add view tweak > Toggle Material/Solid on Alt+Ctrl+Shift+Z
+  Add view tweak > Toggle Material/Solid on Alt+Ctrl+Shift+Z  
   If you dont have pie menu, switching to material view is a pain...
