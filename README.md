@@ -7,7 +7,7 @@ Blender addon - Complementary utils, tools and operators
 search : *Dump active mesh to python*
 
 **equalize levels of subdivision modifier**  
-search : *Subdiv view level from render* or *Subdiv render level from view*)
+search : *Subdiv view level from render* or *Subdiv render level from view*
 
 **Duplicate the mesh with rotation mirrored**  
 search : *Duplicate object mirror*
