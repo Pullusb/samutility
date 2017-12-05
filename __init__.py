@@ -22,7 +22,7 @@ Created by YOUR NAME
 bl_info = {
     "name": "samutility",
     "author": "Samuel Bernou",
-    "version": (0, 0, 2),
+    "version": (0, 0, 3),
     "blender": (2, 78),
     "location": "Anywhere!",
     "description": "Complementary tools",
@@ -45,6 +45,7 @@ from . import developer_utils
 from .mods import subdiv_equalize
 from .code import mesh_dump
 from .render import view_tweak
+from .scene import group_remover
 
 
 from .object import (
