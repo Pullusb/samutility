@@ -1,6 +1,6 @@
 # samutility
 Blender addon - Complementary utils, tools and operators
-
+Rely essentially on search bar to avoid occluding panels (but will add a panel someday to avoid memorizing everything)
 ---
 
 **Mesh to python** - create a text block with script to generate and link geometry  
@@ -21,6 +21,8 @@ search : *Bbox from objects*
 **Decrement name of selected objects (not bones)**  
 search : *Decrement name*
 
+**Remove groups data easily with pre-selection of ghost(empty)**  
+search : *Remove chosen groups*
 
 **View tweaks**  
 Alt+Shift+Z : toggle Only Render  
@@ -29,6 +31,9 @@ Alt+Shift+C : toggle Lock Cam to view
 
 
 ## Update :
+
+2017/12/05 version 0.0.3:
+  - add easy group remover
 
 2017/11/20 version 0.0.2:  
   - Add view tweak > Toggle Material/Solid on Alt+Ctrl+Shift+Z (If you dont have pie menu, switching to material view is a pain...)
