@@ -1,6 +1,10 @@
 # samutility
-Blender addon - Complementary utils, tools and operators
-Rely essentially on search bar to avoid occluding panels (but will add a panel someday to avoid memorizing everything)
+Blender addon - Complementary utils, tools and operators  
+
+Rely essentially on search bar to avoid occluding panels (but will add a panel someday to avoid memorizing everything)  
+  
+**[Download latest](https://github.com/Pullusb/samutility/archive/master.zip)**  
+  
 ---
 
 **Mesh to python** - create a text block with script to generate and link geometry  
